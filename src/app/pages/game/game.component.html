@@ -1,0 +1,18 @@
+<div class="game-container">
+  <h2>Buscaminas</h2>
+  <div class="info-panel">
+    <span>Tiempo: {{ elapsedTime }} s</span>
+    <span>Minas restantes: {{ remainingMines }}</span>
+  </div>
+  <app-board></app-board>
+  <button (click)="resetGame()">Reiniciar Juego</button>
+
+  <!-- Modal de fin de juego -->
+  <div class="modal" *ngIf="gameService.isGameOver()">
+    <div class="modal-content">
+      <h3>Fin del Juego</h3>
+      <p>Puntuación: {{ gameService.getScore() }}</p>
+      <button (click)="resetGame()">Jugar de nuevo</button>
+    </div>
+  </div>
+</div>
